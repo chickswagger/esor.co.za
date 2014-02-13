@@ -65,20 +65,29 @@
  */
 ?>
 <div id="outer-wrapper">
- <div id="outer-second-wrapper">
-  <header id="header" role="banner">
-    <?php if ($logo): ?><div id="logo"><a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><img src="<?php print $logo; ?>"/></a></div><?php endif; ?>
+ <div id="outer-second-wrapper" class="outer-second-wrapper">
+ <div class="inner container">
+ <?php if ($logo): ?><div id="logo"><a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><img src="<?php print $logo; ?>"/></a></div><?php endif; ?>
     <?php if ($site_name): ?><h1 id="site-title"><a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a></h1><?php endif; ?>
     <?php if ($site_slogan): ?><div id="site-description"><?php print $site_slogan; ?></div><?php endif; ?>
     <div class="clear"></div>
+	</div>
+	</div>
+	<div id="head-first" class="outer-second-wrapper">
+  <header id="header" role="banner" class="container">
+    
+	<div id="content-wrapper" class="container">
+	</div>
 	  <?php if ($page['menu']): ?>
-	   <div id="menu">
+	   <div id="menu" class="container">
 		<?php print render($page['menu']); ?>
 	   </div>
 	<?php 
 		/* Disable Main menu if unchecked */
 		if ($main_menu == TRUE): 
 	?>
+	
+
     <nav id="main-menu"  role="navigation">
       <a class="nav-toggle" href="#"><?php print t("Navigation"); ?></a>
       <div class="menu-navigation-container">
@@ -98,7 +107,7 @@
 	<?php endif;?><!-- end main-menu -->
 	
   </header>
-  <div id="header-second">
+  <div id="header-second" class="container">
    <?php endif; ?>
   <?php if ($page['header']): ?>
    <div id="head">
@@ -108,10 +117,9 @@
    <?php endif; ?>
    </div>
 </div>
-<div id="content-wrapper">
-</div>
-<div id="wrapper">
-  <div id="container">
+
+<div id="wrapper" class="container">
+  <div id="container" >
 
     <div class="content-sidebar-wrap">
 
@@ -128,6 +136,13 @@
         <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
         <?php print render($page['content']); ?>
       </section> <!-- /#main -->
+	   <div class="clear"></div>
+
+  <?php if ($page['content_bottom']): ?>
+   <div id="content-bottom">
+     <?php print render($page['content_bottom']) ?>
+   </div>
+   <?php endif; ?>
     </div>
 
     <?php if ($page['sidebar_first']): ?>
@@ -151,12 +166,12 @@
      <?php print render($page['footer']) ?>
    </div>
    <?php endif; ?>
-  </div>
+ 
 
 </div>
 
 	<div id="footer-bottom">
-		  <div id="footer">
+		  <div id="footer" >
 			<?php if ($page['footer_first'] || $page['footer_second'] || $page['footer_third']|| $page['footer_fourth']|| $page['footer_fifth']): ?>
 			  <div id="footer-area" class="clearfix">
 				<?php if ($page['footer_first']): ?>
@@ -176,13 +191,16 @@
 				<?php endif; ?> 
 					
 				</div>
-			<?php endif; ?>
-					<div class="copyright">
+			</div>
+		</div>
+	<?php endif; ?>
+					<div class="container copyright" >
 					<?php print t('Copyright'); ?> &copy; <?php echo date("Y"); ?>, <?php print $site_name; ?> <br/> <?php print t('All rights reserved, website designed and hosted by'); ?>  <a title="StarBright" class="starbright_link" href="http://www.starbright.co.za"><span class="star">Star</span><span class="br">Br</span><span class="i">i</span><span class="g">g</span><span class="h">h</span><span class="t">t</span></a></p>
 					<div class="clear"></div>
 					</div>
 			
-		  </div>
+		  
 	  </div>
+	   
 </div>
 
